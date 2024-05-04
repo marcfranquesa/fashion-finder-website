@@ -2,8 +2,8 @@
 
 import { Submit } from "@/components/submit";
 import React from "react";
-import Image from "next/image";
 import { IntlMessage } from "../lib/i18n";
+import { ImageCard } from "@/components/image-card";
 
 export default function Home() {
   const [id, setId] = React.useState(-1);
@@ -19,21 +19,13 @@ export default function Home() {
 
         <div className="max-w-md space-y-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
           <Submit id={id} setId={setId} />
-          {id < 0 && (
-            <Image
-              src="/api/image/0/0"
-              width={500}
-              height={750}
-              alt="/api/image/0"
-            />
-          )}
+          {id < 0 && <ImageCard path="/api/image/0/0" />}
           {id >= 0 && (
-            <Image
-              src={`/api/image/${id}/0`}
-              width={500}
-              height={750}
-              alt={`image${id}`}
-            />
+            <div className="flex justify-center items-center">
+              <ImageCard path={`/api/image/${id}/0`} />
+              <ImageCard path={`/api/image/${id}/1`} />
+              <ImageCard path={`/api/image/${id}/2`} />
+            </div>
           )}
         </div>
       </div>
