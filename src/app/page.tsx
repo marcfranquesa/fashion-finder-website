@@ -1,13 +1,33 @@
+"use client";
+
+import { Submit } from "@/components/submit";
+import React from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [id, setId] = React.useState(-1);
   return (
-    <main className="">
-      <h1 className="text-4xl font-bold">
-        Welcome to the Inditex Similarity Search
-      </h1>
-      <Image src="/api/image/0" width={500} height={500} alt="image0" />
-      <Image src="/api/image/10" width={500} height={500} alt="image10" />
-    </main>
+    <>
+      <div className="py-[15vh] sm:py-[20vh] flex flex-col items-center justify-center">
+        <h1 className="font-medium text-4xl text-black mb-3 animate-in fade-in slide-in-from-bottom-3 duration-1000 ease-in-out">
+          Inditex Similarity
+        </h1>
+        <p className="text-gray-500 mb-12 text-base animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
+          View similar items from the Inditex collection
+        </p>
+
+        <div className="max-w-md space-y-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
+          <Submit id={id} setId={setId} />
+          {id >= 0 && (
+            <Image
+              src={`/api/image/${id}`}
+              width={500}
+              height={500}
+              alt={`image${id}`}
+            />
+          )}
+        </div>
+      </div>
+    </>
   );
 }

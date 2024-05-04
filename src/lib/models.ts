@@ -8,6 +8,7 @@ const timeout = 10000;
 
 const clothingSchema = new mongoose.Schema(
   {
+    index: Number,
     link: String,
   },
   {

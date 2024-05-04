@@ -6,10 +6,13 @@ export const GET = async (
   { params }: { params: { id: number } }
 ) => {
   const mongoResponse = await fetch(
-    process.env.BEGIN_URL! + process.env.VERCEL_URL! + "/api/mongo"
+    process.env.BEGIN_URL! +
+      process.env.VERCEL_URL! +
+      "/api/mongo?index=" +
+      params.id
   );
   const mongoCollection = await mongoResponse.json();
-  const imageUrl = mongoCollection[params.id].link;
+  const imageUrl = mongoCollection[0].link;
   const res = await fetch(imageUrl);
   const blob = await res.arrayBuffer();
 
