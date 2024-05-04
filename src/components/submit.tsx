@@ -28,26 +28,24 @@ export function Submit({
   };
 
   return (
-    <>
-      <div className="bg-black rounded-xl shadow-lg h-fit flex flex-row px-1 items-center w-full mb-4">
-        <input
-          type="text"
-          name="prompt"
-          placeholder={IntlMessage({ id: "formsDefault" })}
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyPress}
-          className="bg-transparent text-white placeholder:text-gray-400 ring-0 outline-none resize-none py-2.5 px-2 font-mono text-sm h-10 w-full transition-all duration-300"
-        />
-        <input
-          type="text"
-          name="token"
-          value={id}
-          className="hidden"
-          readOnly={true}
-        />
-        <SubmitButton onClick={handleSubmit} />
-      </div>
-    </>
+    <div className="bg-black rounded-xl shadow-lg h-fit flex flex-row items-center justify-center mx-auto mb-4 max-w-56">
+      <input
+        type="text"
+        name="prompt"
+        placeholder={IntlMessage({ id: "formsDefault" })}
+        value={inputValue}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
+        className="bg-transparent text-white placeholder:text-gray-400 ring-0 outline-none resize-none py-2.5 px-2 font-mono text-sm h-10 w-full transition-all duration-300"
+      />
+      <input
+        type="text"
+        name="token"
+        value={id}
+        className="hidden"
+        readOnly={true}
+      />
+      <SubmitButton onClick={handleSubmit} />
+    </div>
   );
 }

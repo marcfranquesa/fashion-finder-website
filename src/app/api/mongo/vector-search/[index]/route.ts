@@ -28,7 +28,7 @@ export const GET = async (
           path: "embedding",
           queryVector: embedding,
           numCandidates: 150,
-          limit: 5,
+          limit: 6,
         },
       },
       {
