@@ -1,4 +1,6 @@
 export type clothingLinks = {
   index: number;
-  link: string;
+  link_1: string;
+  link_2: string;
+  link_3: string;
 };

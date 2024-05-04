@@ -10,7 +10,7 @@ export async function GET(
     const searchParams = request.nextUrl.searchParams;
     const index = searchParams.get("index");
     const collection = await Models.Clothing.find({ index: index });
-    return NextResponse.json(collection, { status: 200 });
+    return NextResponse.json(collection[0], { status: 200 });
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error", err }, { status: 500 });

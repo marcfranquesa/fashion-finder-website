@@ -2,6 +2,9 @@ import os
 from dotenv import load_dotenv
 import pymongo
 import pandas as pd
+import torch
+import ast
+import numpy as np
 
 load_dotenv()
 
@@ -20,15 +23,14 @@ db.drop_collection(collection_name)
 new_collection = db.create_collection(collection_name)
 
 df = pd.read_csv(df_path)
-df = pd.DataFrame(df.values.reshape(-1, 1), columns=["link"])
-df = df.dropna()
 df = df.reset_index()
+cols = ["link_1", "link_2", "link_3"]
+df = df[cols]
+df = df.reset_index()
+data_to_upload = df.to_dict(orient="records")
 
 print(df)
 
-
-
-data_to_upload = df.to_dict(orient="records")
 result = collection.insert_many(data_to_upload)
 
 print("Data uploaded successfully")

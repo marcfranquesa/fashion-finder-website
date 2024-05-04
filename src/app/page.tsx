@@ -20,7 +20,7 @@ export default function Home() {
           <Submit id={id} setId={setId} />
           {id < 0 && (
             <Image
-              src="/api/image/0"
+              src="/api/image/0/0"
               width={500}
               height={750}
               alt="/api/image/0"
@@ -28,7 +28,7 @@ export default function Home() {
           )}
           {id >= 0 && (
             <Image
-              src={`/api/image/${id}`}
+              src={`/api/image/${id}/0`}
               width={500}
               height={750}
               alt={`image${id}`}
