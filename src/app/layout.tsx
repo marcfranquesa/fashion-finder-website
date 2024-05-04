@@ -1,9 +1,13 @@
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { IntlProvider } from "../lib/i18n";
+import "./globals.css";
+import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
-import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
+import { IntlMessage } from "../lib/i18n";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 
 const BODY_PADDING = "px-4 sm:px-6";
 
@@ -14,11 +18,27 @@ export const metadata: Metadata = {
   description: "Search for similar photos in the Inditex catalog",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const localeCookieName = "locale";
+  const defaultLocale = "en";
+  const localeCoookie = cookies().get(localeCookieName);
+  const localeCookieValue = localeCoookie?.value || defaultLocale;
+  const messages = await import(
+    `./translations/${localeCookieValue}.json`
+  ).then((m) => m.default);
+
+  return (
+    <IntlProvider messages={messages} locale={localeCookieValue}>
+      <RootLayoutInner locale={localeCookieValue}>{children}</RootLayoutInner>
+    </IntlProvider>
+  );
+}
+
+function RootLayoutInner(props: any) {
   return (
     <html lang="en">
       <body className={cn(inter.className, "antialiased bg-gray-100")}>
@@ -32,16 +52,21 @@ export default function RootLayout({
             className="text-black text-lg font-medium flex flex-row flex-nowrap items-center justify-center gap-x-1.5 pr-1.5 leading-none rounded-lg"
             href="/"
           >
-            <span>HACKUPC</span>
+            <span>
+              <IntlMessage id="hackupc" />
+            </span>
           </Link>
 
-          <div className="flex flex-row flex-nowrap gap-x-1.5 items-center">
+          <div className="flex gap-2 flex-row flex-nowrap gap-x-1.5 items-center">
             <Link
               href="/model-architecture"
               className="flex items-center justify-center"
             >
-              <span>Model Architecture</span>
+              <span>
+                <IntlMessage id="modelArchitectureTitle" />
+              </span>
             </Link>
+            <LocaleSwitcher locale={props.locale} />
           </div>
         </header>
         <main
@@ -50,7 +75,7 @@ export default function RootLayout({
             BODY_PADDING
           )}
         >
-          {children}
+          {props.children}
         </main>
       </body>
     </html>

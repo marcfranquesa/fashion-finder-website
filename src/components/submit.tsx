@@ -1,5 +1,5 @@
 import { SubmitButton } from "@/components/submit-button";
-
+import { IntlMessage } from "../lib/i18n";
 import React, { useState } from "react";
 
 export function Submit({
@@ -33,7 +33,7 @@ export function Submit({
         <input
           type="text"
           name="prompt"
-          placeholder="Enter a number between 0 and 100000"
+          placeholder={IntlMessage({ id: "formsDefault" })}
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
