@@ -24,12 +24,17 @@ new_collection = db.create_collection(collection_name)
 
 df = pd.read_csv(df_path)
 df = df.reset_index()
-cols = ["link_1", "link_2", "link_3"]
+
+embedding_cols = [col for col in df.columns if col[:10] == "embedding_" ]
+
+df["embedding"] = df[embedding_cols].values.tolist()
+
+cols = ["link_1", "link_2", "link_3", "embedding"]
 df = df[cols]
 df = df.reset_index()
 data_to_upload = df.to_dict(orient="records")
 
-print(df)
+print(data_to_upload)
 
 result = collection.insert_many(data_to_upload)
 

@@ -12,6 +12,7 @@ const clothingSchema = new mongoose.Schema(
     link_1: String,
     link_2: String,
     link_3: String,
+    embedding: [Number],
   },
   {
     bufferTimeoutMS: timeout,
