@@ -7,6 +7,7 @@ import { ImageCard } from "@/components/image-card";
 
 export default function Home() {
   const [id, setId] = React.useState(-1);
+
   return (
     <>
       <div className="py-[10vh] sm:py-[10vh] flex flex-col items-center justify-center">
