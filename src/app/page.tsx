@@ -18,11 +18,19 @@ export default function Home() {
 
         <div className="max-w-md space-y-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
           <Submit id={id} setId={setId} />
+          {id < 0 && (
+            <Image
+              src="/api/image/0"
+              width={500}
+              height={750}
+              alt="/api/image/0"
+            />
+          )}
           {id >= 0 && (
             <Image
               src={`/api/image/${id}`}
               width={500}
-              height={500}
+              height={750}
               alt={`image${id}`}
             />
           )}
