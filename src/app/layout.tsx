@@ -38,8 +38,6 @@ export default function RootLayout({
           <div className="flex flex-row flex-nowrap gap-x-1.5 items-center">
             <Link
               href="/model-architecture"
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center justify-center"
             >
               <span>Model Architecture</span>
