@@ -19,7 +19,6 @@ export default function Home() {
 
         <div className="max-w-md space-y-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
           <Submit id={id} setId={setId} />
-          {id < 0 && <ImageCard path="/api/image/0/0" />}
           {id >= 0 && (
             <div className="flex justify-center items-center">
               <ImageCard path={`/api/image/${id}/0`} />

@@ -29,7 +29,7 @@ export function Submit({
 
   return (
     <>
-      <div className="bg-black rounded-xl shadow-lg h-fit flex flex-row px-1 items-center w-full">
+      <div className="bg-black rounded-xl shadow-lg h-fit flex flex-row px-1 items-center w-full mb-4">
         <input
           type="text"
           name="prompt"
