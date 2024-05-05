@@ -1,7 +1,21 @@
 {
-  "hackupc": "HACKUPC",
+  "hackupc": "MATESDADDIES",
   "modelArchitectureTitle": "Arquitectura del Model",
-  "title": "Similaritat amb Inditex",
+  "title": "Similitud amb Inditex",
   "subtitle": "Veure elements similars de la col·lecció d'Inditex",
-  "formsDefault": "Introdueix un número"
+  "formsDefault": "Introdueix un número",
+  "recommenderTitle": "Recomanador",
+  "recommenderSubtitle": "Troba elements de la col·lecció d'Inditex",
+  "architectureT2": "Preprocessament",
+  "architectureP1": "En aquesta primera fase, el nostre objectiu és generar un conjunt de dades d'incrustacions de les imatges.",
+  "architectureT3": "Processament d'imatges",
+  "architectureP2": "Ens proporcionen una llista d'URLs d'imatges. Les imatges estan en grups de 3, cada grup representa un producte. Com que necessitarem executar inferència i entrenament diverses vegades sobre aquestes imatges, primer volem descarregar cada imatge per tenir un conjunt de dades local. Després d'enfrontar-nos diverses vegades a la protecció contra DDoS, vam aconseguir descarregar el conjunt de dades sencer. L'únic inconvenient va ser al voltant de 1000 imatges corruptes de 140k, la qual cosa ens deixa satisfets amb el conjunt de dades.",
+  "architectureT4": "Segmentació de roba",
+  "architectureP3": "Després de descobrir que cada imatge podia tenir diferents fons, configuracions i perspectives, vam decidir utilitzar un model de segmentació de roba per permetre que el model es centri en la part important de cada imatge. Per a cada imatge, la passem pel model per recuperar la màscara que defineix la regió d'interès, i canviem el fons de la imatge original per una pantalla verda (tan lletja com pugui ser aquest color, el negre pot portar a alguns problemes quan s'analitzen roba fosca). Aquest procés es realitza amb un model U2NET preentrenat per a l'anàlisi de roba en retrat humà.",
+  "architectureT5": "Incrustació d'imatges",
+  "architectureP4": "Amb el conjunt de dades d'imatges amb màscara, volem a continuació obtenir les seves incrustacions (representacions vectorials) per mesurar la similitud entre diferents peces de roba utilitzant la mesura de similitud cosinus. Per a aquest propòsit, utilitzem un model semblant a CLIP, afinat per a la moda en un conjunt de dades de Zalando de 71k mostres etiquetades.",
+  "architectureT6": "Càrrega a MongoDB",
+  "architectureP5": "Finalment, normalitzem les incrustacions i les mitjanem sobre les imatges que pertanyen al mateix grup. Els vectors resultants s'associen amb l'URL original de les imatges del grup en un dataframe, que després es carrega a MongoDB. Aquesta eina ens permet després llegir la informació des del front-end i cercar de manera eficient les coincidències de similitud top-k. Proporcionem un esquema del pipeline per resumir el que s'ha dit.",
+  "architectureT7": "Inferència",
+  "architectureP6": "Amb un conjunt de dades d'incrustacions, associades a les imatges, i la capacitat de cercar de manera eficient l'espai per a roba similar, estem totalment preparats per a la inferència. En el nostre front-end, tens la capacitat de triar les característiques de la peça de roba que vols trobar. Aquesta informació, gràcies a l'elecció d'utilitzar un model CLIP, pot ser incrustada en el mateix espai que les imatges. El resultat més similar es retorna, incloent totes les seves 3 imatges. A més, utilitzem el resultat principal per trobar els 5 que són més similars a aquest. Amb això, pretenem oferir alternatives que semblin similars a l'original. Aquí hi ha un esquema d'això:"
 }
