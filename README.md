@@ -1,1 +1,1 @@
-# Inditex Similarity
+# Fashion Recommender Frontend
