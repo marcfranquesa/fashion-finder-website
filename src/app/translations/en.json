@@ -1,9 +1,11 @@
 {
   "hackupc": "MATESDADDIES",
   "modelArchitectureTitle": "Model Architecture",
-  "title": "Fashion Recommender",
+  "title": "Fashion Finder",
   "subtitle": "View similar items from the Inditex collection",
-  "formsDefault": "Enter a number",
+  "image-selected": "Selected product:",
+  "image-recommendations": "Recommended products:",
+  "formsDefault": "Enter a product id",
   "recommenderTitle": "Recommender",
   "recommenderSubtitle": "Find items from the Inditex collection",
   "architectureT2": "Preprocessing",

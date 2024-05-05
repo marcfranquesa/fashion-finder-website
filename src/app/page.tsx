@@ -41,23 +41,34 @@ export default function Home() {
 
         <div className="max-w-[38rem] space-y-4">
           <Submit id={id} setId={setId} />
+
           {id >= 0 && (
-            <div className="flex justify-center items-center">
-              <ImageCard path={`/api/image/${id}/0`} />
-              <ImageCard path={`/api/image/${id}/1`} />
-              <ImageCard path={`/api/image/${id}/2`} />
+            <div className="pt-4">
+              <p className="text-gray-500 text-sm mx-auto flex justify-center">
+                <IntlMessage id="image-selected" />
+              </p>
+              <div className="flex justify-center items-center">
+                <ImageCard path={`/api/image/${id}/0`} />
+                <ImageCard path={`/api/image/${id}/1`} />
+                <ImageCard path={`/api/image/${id}/2`} />
+              </div>
             </div>
           )}
           {similar && similar[0] && (
-            <div className="flex justify-center items-center pt-6">
-              {similar.slice(1, 6).map((item, index) => (
-                <ImageCard
-                  key={index}
-                  path={`/api/image/${item.index}/0`}
-                  link={item.link_1}
-                />
-              ))}
-            </div>
+            <>
+              <p className="text-gray-500 text-sm mx-auto flex justify-center">
+                <IntlMessage id="image-recommendations" />
+              </p>
+              <div className="flex justify-center items-center">
+                {similar.slice(1, 6).map((item, index) => (
+                  <ImageCard
+                    key={index}
+                    path={`/api/image/${item.index}/0`}
+                    link={item.link_1}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>

@@ -1,1 +1,1 @@
-# Fashion Recommender Frontend
+# Fashion Finder Frontend
