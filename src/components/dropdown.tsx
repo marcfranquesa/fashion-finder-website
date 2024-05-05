@@ -23,9 +23,9 @@ export default function DropDown({
   options,
 }: DropDownProps) {
   return (
-    <Menu as="div" className="max-w-md">
+    <Menu as="div" className="relative max-w-md">
       <div>
-        <Menu.Button className="inline-flex max-w-md justify-between items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
+        <Menu.Button className="max-w-md inline-flex justify-between items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
           {option}
           <ChevronUpIcon
             className="-mr-1 ml-2 h-5 w-5 ui-open:hidden"
@@ -48,10 +48,10 @@ export default function DropDown({
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="relative left-0 z-10 mt-2 max-w-md origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="left-0 max-w-md absolute right-0 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           key={option}
         >
-          <div className="">
+          <div>
             {options.map((optionItem) => (
               <Menu.Item key={optionItem}>
                 {({ active }: { active: any }) => (
