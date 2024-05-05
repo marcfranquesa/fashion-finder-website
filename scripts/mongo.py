@@ -34,7 +34,7 @@ df = df[cols]
 df = df.reset_index()
 data_to_upload = df.to_dict(orient="records")
 
-print(data_to_upload)
+print(len(df))
 
 result = collection.insert_many(data_to_upload)
 
