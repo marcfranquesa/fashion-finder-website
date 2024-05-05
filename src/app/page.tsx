@@ -10,12 +10,14 @@ export default function Home() {
   const [similar, setSimilar] = React.useState<
     {
       index: string;
+      link_1: string;
       score: number;
     }[]
   >();
 
   React.useEffect(() => {
     const fetchData = async () => {
+      if (id === -1) return;
       try {
         const data = await fetch("/api/mongo/vector-search/" + id);
         setSimilar(await data.json());
@@ -30,14 +32,14 @@ export default function Home() {
   return (
     <>
       <div className="py-12 sm:py-8 flex flex-col items-center justify-center">
-        <h1 className="font-medium text-4xl text-black mb-3 animate-in fade-in slide-in-from-bottom-3 duration-1000 ease-in-out">
+        <h1 className="font-medium text-4xl text-black mb-3">
           <IntlMessage id="title" />
         </h1>
-        <p className="text-gray-500 mb-6 text-base animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
+        <p className="text-gray-500 mb-6 text-base">
           <IntlMessage id="subtitle" />
         </p>
 
-        <div className="max-w-[38rem] w-full space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1200 ease-in-out">
+        <div className="max-w-[38rem] space-y-4">
           <Submit id={id} setId={setId} />
           {id >= 0 && (
             <div className="flex justify-center items-center">
@@ -49,7 +51,11 @@ export default function Home() {
           {similar && similar[0] && (
             <div className="flex justify-center items-center pt-6">
               {similar.slice(1, 6).map((item, index) => (
-                <ImageCard path={`/api/image/${item.index}/0`} />
+                <ImageCard
+                  key={index}
+                  path={`/api/image/${item.index}/0`}
+                  link={item.link_1}
+                />
               ))}
             </div>
           )}

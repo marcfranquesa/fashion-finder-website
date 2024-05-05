@@ -35,6 +35,7 @@ export const GET = async (
         $project: {
           _id: 0,
           index: 1,
+          link_1: 1,
           score: {
             $meta: "vectorSearchScore",
           },

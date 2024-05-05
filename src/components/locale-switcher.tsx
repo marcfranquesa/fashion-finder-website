@@ -10,9 +10,9 @@ export function LocaleSwitcher(props: { locale: string }) {
         location.reload();
       }}
     >
-      <option value="en">en</option>
-      <option value="es">es</option>
-      <option value="ca">ca</option>
+      <option value="en">English</option>
+      <option value="es">Spanish</option>
+      <option value="ca">Catalan</option>
     </select>
   );
 }

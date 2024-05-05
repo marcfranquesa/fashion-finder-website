@@ -62,7 +62,7 @@ function RootLayoutInner(props: any) {
               href="/model-architecture"
               className="flex items-center justify-center"
             >
-              <span>
+              <span className="px-2">
                 <IntlMessage id="modelArchitectureTitle" />
               </span>
             </Link>
