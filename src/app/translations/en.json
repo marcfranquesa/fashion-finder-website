@@ -1,7 +1,9 @@
 {
-  "hackupc": "HACKUPC",
+  "hackupc": "MATESDADDIES",
   "modelArchitectureTitle": "Model Architecture",
   "title": "Inditex Similarity",
   "subtitle": "View similar items from the Inditex collection",
-  "formsDefault": "Enter a number"
+  "formsDefault": "Enter a number",
+  "recommenderTitle": "Recommender",
+  "recommenderSubtitle": "Find items from the Inditex collection"
 }

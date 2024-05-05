@@ -66,6 +66,16 @@ function RootLayoutInner(props: any) {
                 <IntlMessage id="modelArchitectureTitle" />
               </span>
             </Link>
+            <span className="px-2">|</span>
+            <Link
+              href="/recommender"
+              className="flex items-center justify-center"
+            >
+              <span className="px-2">
+                <IntlMessage id="recommenderTitle" />
+              </span>
+            </Link>
+            <span className="px-2">|</span>
             <LocaleSwitcher locale={props.locale} />
           </div>
         </header>

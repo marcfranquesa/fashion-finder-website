@@ -20,6 +20,25 @@ const clothingSchema = new mongoose.Schema(
   }
 );
 
+const filterSchema = new mongoose.Schema(
+  {
+    index: Number,
+    color: String,
+    person: String,
+    season: String,
+    type: String,
+    pattern: String,
+    embedding: [Number],
+  },
+  {
+    bufferTimeoutMS: timeout,
+    maxTimeMS: timeout,
+  }
+);
+
 export const Clothing =
   mongoose.models.Clothing ||
   mongoose.model("Clothing", clothingSchema, "clothings");
+
+export const Filter =
+  mongoose.models.Filter || mongoose.model("Filter", filterSchema, "filters");

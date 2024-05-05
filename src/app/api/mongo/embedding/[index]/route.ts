@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import * as Models from "@/lib/models";
 import type { NextRequest } from "next/server";
 
 export async function GET(
