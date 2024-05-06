@@ -4,10 +4,8 @@ import { IntlProvider } from "../lib/i18n";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
-import { IntlMessage } from "../lib/i18n";
-import { LocaleSwitcher } from "@/components/locale-switcher";
+import Navbar from "@/components/navbar";
 
 const BODY_PADDING = "px-4 sm:px-6";
 
@@ -42,43 +40,7 @@ function RootLayoutInner(props: any) {
   return (
     <html lang="en">
       <body className={cn(inter.className, "antialiased bg-gray-100")}>
-        <header
-          className={cn(
-            "top-0 sticky z-20 w-full py-3 bg-gray-100 flex flex-row flex-nowrap justify-between max-w-5xl mx-auto h-14 items-stretch animate-in fade-in slide-in-from-top-4 duration-1000 ease-in-out",
-            BODY_PADDING
-          )}
-        >
-          <Link
-            className="text-black text-lg font-medium flex flex-row flex-nowrap items-center justify-center gap-x-1.5 pr-1.5 leading-none rounded-lg"
-            href="/"
-          >
-            <span>
-              <IntlMessage id="hackupc" />
-            </span>
-          </Link>
-
-          <div className="flex gap-2 flex-row flex-nowrap gap-x-1.5 items-center">
-            <Link
-              href="/model-architecture"
-              className="flex items-center justify-center"
-            >
-              <span className="px-2">
-                <IntlMessage id="modelArchitectureTitle" />
-              </span>
-            </Link>
-            <span className="px-2">|</span>
-            <Link
-              href="/recommender"
-              className="flex items-center justify-center"
-            >
-              <span className="px-2">
-                <IntlMessage id="recommenderTitle" />
-              </span>
-            </Link>
-            <span className="px-2">|</span>
-            <LocaleSwitcher locale={props.locale} />
-          </div>
-        </header>
+        <Navbar body_padding={BODY_PADDING} locale={props.locale} />
         <main
           className={cn(
             "min-h-screen flex items-stretch flex-col pb-28 max-w-5xl mx-auto",

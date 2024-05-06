@@ -23,7 +23,7 @@ export default function DropDown({
   options,
 }: DropDownProps) {
   return (
-    <Menu as="div" className="relative max-w-md z-50">
+    <Menu as="div" className="relative max-w-md">
       <div>
         <Menu.Button className="max-w-md inline-flex justify-between items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
           {option}
@@ -48,7 +48,7 @@ export default function DropDown({
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="left-0 max-w-md absolute right-0 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="z-50 left-0 max-w-md absolute right-0 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           key={option}
         >
           <div>

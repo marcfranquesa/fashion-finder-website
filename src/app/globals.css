@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.menu-icon line {
+  @apply transition-opacity duration-75 ease-in-out;
+}
+.menu-icon .close {
+  opacity: 0;
+}
+.menu-icon.is-active .line {
+  @apply opacity-0;
+}
+.menu-icon.is-active .close {
+  @apply opacity-100;
+}
