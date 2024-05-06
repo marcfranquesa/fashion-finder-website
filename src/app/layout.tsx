@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const BODY_PADDING = "px-4 sm:px-6";
 
@@ -49,6 +50,7 @@ function RootLayoutInner(props: any) {
         >
           {props.children}
         </main>
+        <Footer />
       </body>
     </html>
   );
