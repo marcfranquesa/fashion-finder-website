@@ -7,7 +7,7 @@ export default function Footer() {
         <p className="text-sm flex items-center">
           <span className="flex-grow text-center">
             <a
-              href="https://github.com/marcfranquesa/fashion-finder-frontend"
+              href="https://github.com/marcfranquesa/fashion-finder-website"
               className="ml-4 bg-transparent underline-offset-4 hover:underline hover:bg-transparent"
             >
               <span className="pr-2">Website</span>
@@ -23,7 +23,7 @@ export default function Footer() {
           <span className=""></span>
           <span className="flex-grow text-center">
             <a
-              href="https://github.com/maurofr/fashion-recommender-model"
+              href="https://github.com/maurofr/fashion-finder-model"
               className="ml-4 bg-transparent underline-offset-4 hover:underline hover:bg-transparent"
             >
               <span className="pr-2">Embeddings</span>
