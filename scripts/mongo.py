@@ -8,10 +8,10 @@ import numpy as np
 
 load_dotenv()
 
-connection_string = os.getenv("CONNECTION_STRING")
+MONGODB_URI = os.getenv("MONGODB_URI")
 df_path = os.getenv("DF_PATH")
 
-client = pymongo.MongoClient(connection_string)
+client = pymongo.MongoClient(MONGODB_URI)
 
 database_name = "hackupc"
 collection_name = "clothings"

@@ -8,8 +8,8 @@ export const GET = async (
   { params }: { params: { index: number; image: number } }
 ) => {
   const mongoResponse = await fetch(
-    process.env.BEGIN_URL! +
-      process.env.VERCEL_URL! +
+    process.env.NEXT_PUBLIC_BEGIN_URL! +
+      process.env.NEXT_PUBLIC_MAIN_URL! +
       "/api/mongo?index=" +
       params.index
   );

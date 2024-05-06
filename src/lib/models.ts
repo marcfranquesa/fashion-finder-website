@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.CONNECTION_STRING!).catch((error) => {
+mongoose.connect(process.env.MONGODB_URI!).catch((error) => {
   console.log("Failed to connect to MongoDB:", error);
 });
 

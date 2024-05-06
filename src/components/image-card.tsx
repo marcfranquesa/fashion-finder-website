@@ -13,7 +13,11 @@ export function ImageCard({ path, link }: { path: string; link?: string }) {
       >
         <a href={link} target="_blank">
           <Image
-            src={path}
+            src={
+              process.env.NEXT_PUBLIC_BEGIN_URL! +
+              process.env.NEXT_PUBLIC_MAIN_URL! +
+              path
+            }
             width={200}
             height={100}
             alt={path}

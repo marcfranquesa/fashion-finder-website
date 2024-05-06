@@ -8,14 +8,14 @@ export const GET = async (
 ) => {
   try {
     const mongoResponse = await fetch(
-      process.env.BEGIN_URL! +
-        process.env.VERCEL_URL! +
+      process.env.NEXT_PUBLIC_BEGIN_URL! +
+        process.env.NEXT_PUBLIC_MAIN_URL! +
         "/api/mongo/embedding/" +
         params.index
     );
     const embedding = await mongoResponse.json();
 
-    const uri = process.env.CONNECTION_STRING!;
+    const uri = process.env.MONGODB_URI!;
     const client = new MongoClient(uri);
     await client.connect();
     const database = client.db("hackupc");

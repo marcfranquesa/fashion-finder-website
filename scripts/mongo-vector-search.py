@@ -5,10 +5,10 @@ import os
 
 load_dotenv()
 
-connection_string = os.getenv("CONNECTION_STRING")
+MONGODB_URI = os.getenv("MONGODB_URI")
 
 # connect to your Atlas cluster
-client = pymongo.MongoClient(connection_string)
+client = pymongo.MongoClient(MONGODB_URI)
 
 coll = client["hackupc"]["clothings"]
 
