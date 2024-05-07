@@ -26,7 +26,7 @@ export type Season = "winter" | "spring" | "summer" | "autumn";
 export type Clothing =
   | "dress"
   | "trouser"
-  | "short"
+  | "shorts"
   | "shirt"
   | "jacket"
   | "jumper"

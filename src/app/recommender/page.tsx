@@ -45,7 +45,7 @@ export default function Page() {
   const types: Types.DropdownOptions[] = [
     "dress",
     "trouser",
-    "short",
+    "shorts",
     "shirt",
     "jacket",
     "jumper",
