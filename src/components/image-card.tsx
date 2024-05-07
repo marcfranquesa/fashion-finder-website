@@ -5,7 +5,7 @@ export function ImageCard({ path, link }: { path: string; link?: string }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="max-w-md transition-transform duration-300 ease-in-out hover:scale-105">
+    <div className="transition-transform duration-300 ease-in-out hover:scale-105">
       <div
         className={`inner-container p-4 ${isHovered ? "hover-scale" : ""}`}
         onMouseEnter={() => setIsHovered(true)}
@@ -18,12 +18,10 @@ export function ImageCard({ path, link }: { path: string; link?: string }) {
               process.env.NEXT_PUBLIC_MAIN_URL! +
               path
             }
-            width={200}
-            height={100}
+            width={160}
+            height={200}
             alt={path}
-            layout="responsive"
-            objectFit="cover"
-            className="rounded-lg shadow-md w-full h-auto"
+            className="fill rounded-lg shadow-md"
           />
         </a>
       </div>

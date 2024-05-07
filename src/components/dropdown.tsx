@@ -23,9 +23,9 @@ export default function DropDown({
   options,
 }: DropDownProps) {
   return (
-    <Menu as="div" className="relative max-w-md">
+    <Menu as="div" className="relative min-w-36">
       <div>
-        <Menu.Button className="max-w-md inline-flex justify-between items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
+        <Menu.Button className="min-w-36 inline-flex justify-between items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
           {option}
           <ChevronUpIcon
             className="-mr-1 ml-2 h-5 w-5 ui-open:hidden"
@@ -48,7 +48,7 @@ export default function DropDown({
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="z-50 left-0 max-w-md absolute right-0 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="z-50 left-0 min-w-36 absolute right-0 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           key={option}
         >
           <div>
@@ -60,13 +60,13 @@ export default function DropDown({
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       option === optionItem ? "bg-gray-200" : "",
-                      "px-4 py-2 text-sm max-w-md text-left flex items-center space-x-2 justify-between"
+                      "px-4 py-2 text-sm flex items-center space-x-2 justify-between min-w-36 rounded-md"
                     )}
                   >
                     <span>{optionItem}</span>
-                    {option === optionItem ? (
+                    {option === optionItem && (
                       <CheckIcon className="w-4 h-4 text-bold" />
-                    ) : null}
+                    )}
                   </button>
                 )}
               </Menu.Item>

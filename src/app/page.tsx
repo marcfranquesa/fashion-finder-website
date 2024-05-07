@@ -30,48 +30,48 @@ export default function Home() {
   }, [id]);
 
   return (
-    <>
-      <div className="py-12 sm:py-8 flex flex-col items-center justify-center">
-        <h1 className="font-medium text-4xl text-black mb-3">
-          <IntlMessage id="title" />
-        </h1>
-        <p className="text-gray-500 mb-6 text-base">
-          <IntlMessage id="subtitle" />
-        </p>
+    <div className="py-12 sm:py-8 flex flex-col items-center justify-center">
+      <h1 className="font-medium text-4xl text-black mb-3">
+        <IntlMessage id="title" />
+      </h1>
+      <p className="text-gray-500 mb-6 text-base text-center">
+        <IntlMessage id="subtitle" />
+      </p>
 
-        <div className="max-w-[38rem] space-y-4">
-          <Submit id={id} setId={setId} />
+      <div className="max-w-[38rem] space-y-4">
+        <Submit id={id} setId={setId} />
 
-          {id >= 0 && (
-            <div className="pt-4">
-              <p className="text-gray-500 text-sm mx-auto flex justify-center">
-                <IntlMessage id="image-selected" />
-              </p>
-              <div className="flex justify-center items-center">
-                <ImageCard path={`/api/image/${id}/0`} />
-                <ImageCard path={`/api/image/${id}/1`} />
-                <ImageCard path={`/api/image/${id}/2`} />
-              </div>
+        {id >= 0 && (
+          <div className="pt-4">
+            <p className="text-gray-500 text-sm mx-auto flex justify-center">
+              <IntlMessage id="imageSelected" />
+            </p>
+            <div className="flex justify-center items-center">
+              <ImageCard path={`/api/image/${id}/0`} />
+              <ImageCard path={`/api/image/${id}/1`} />
+              <ImageCard path={`/api/image/${id}/2`} />
             </div>
-          )}
-          {similar && similar[0] && (
-            <>
-              <p className="text-gray-500 text-sm mx-auto flex justify-center">
-                <IntlMessage id="image-recommendations" />
-              </p>
-              <div className="flex justify-center items-center">
-                {similar.slice(1, 6).map((item, index) => (
-                  <ImageCard
-                    key={index}
-                    path={`/api/image/${item.index}/0`}
-                    link={item.link_1}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    </>
+      <div className="pt-2">
+        {similar && similar[0] && (
+          <>
+            <p className="text-gray-500 text-sm mx-auto flex justify-center">
+              <IntlMessage id="imageRecommendations" />
+            </p>
+            <div className="flex flex-wrap justify-center">
+              {similar.slice(1, 6).map((item, index) => (
+                <ImageCard
+                  key={index}
+                  path={`/api/image/${item.index}/0`}
+                  link={item.link_1}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 }

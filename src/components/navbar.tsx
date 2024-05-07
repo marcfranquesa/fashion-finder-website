@@ -56,7 +56,7 @@ export default function Navbar({
               <IntlMessage id="recommenderTitle" />
             </span>
           </Link>
-          <span className="px-2">|</span>
+          <span className="px-2 pr-4">|</span>
           <LocaleSwitcher locale={locale} />
         </div>
       </div>

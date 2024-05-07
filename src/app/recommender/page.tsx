@@ -89,10 +89,10 @@ export default function Page() {
       <h1 className="font-medium text-4xl text-black mb-3 animate-in fade-in slide-in-from-bottom-3 duration-1000 ease-in-out">
         <IntlMessage id="recommenderTitle" />
       </h1>
-      <p className="text-gray-500 mb-6 text-base">
+      <p className="text-gray-500 mb-6 text-base text-center">
         <IntlMessage id="recommenderSubtitle" />
       </p>
-      <div className="flex flex-row flex-wrap gap-4">
+      <div className="flex flex-row flex-wrap gap-4 justify-center">
         <DropDown
           option={color}
           setOption={(newOption) => setColor(newOption)}
@@ -120,7 +120,7 @@ export default function Page() {
         />
       </div>
       {similar && similar[0] && (
-        <div className="flex justify-center items-center pt-6">
+        <div className="flex flex-wrap justify-center pt-6">
           {similar.slice(0, 5).map((item, index) => (
             <ImageCard
               key={index}
