@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const BODY_PADDING = "px-4 sm:px-6";
 
@@ -41,6 +42,7 @@ function RootLayoutInner(props: any) {
   return (
     <html lang="en">
       <body className={cn(inter.className, "antialiased bg-gray-100")}>
+        <Analytics />
         <Navbar body_padding={BODY_PADDING} locale={props.locale} />
         <main
           className={cn(
