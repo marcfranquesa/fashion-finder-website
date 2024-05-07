@@ -2,7 +2,7 @@
 
 <h4 align="center">
     <a href="https://fashion-finder-eta.vercel.app">Website</a> | 
-    <a href="https://github.com/maurofr/fashion-finder-model">Embeddings Repository</a>
+    <a href="https://github.com/maurofr/fashion-finder-model">Model Repository</a>
 </h4>
 
 <div align="center">
@@ -17,13 +17,13 @@ Fashion Finder is a full-stack application for visualizing and recommending prod
 
 We first preprocessed the entire dataset (around 50k products with 3 images per item) and extracted an embedding for each product. Then, we saved these in MongoDB and created an application to perform the queries. Thanks to the CLIP model, we can create embeddings for images and text.
 
-### Embeddings
+### Model
 
 The extraction of the embeddings is a two-step process:
 
 1. Image segmentation to identify the regions of interest of each image (the Inditex product). Then, replace everything else with the color green (the color was chosen based on perceptual results). [Model](https://github.com/levindabhi/cloth-segmentation).
 
-2. Given the masked image, we feed it to a fashion fine-tuned CLIP model to get its embedding (the mask helps the model focus on the product). After attempting to train a Siamese network and a VAE and finding poor results, we ended up using a [pre-trained model](https://github.com/patrickjohncyh/fashion-clip). Our entire embedding extraction process can be found [here](https://github.com/maurofr/fashion-finder-model).
+2. Given the masked image, we feed it to a fashion fine-tuned CLIP model to get its embedding (the mask helps the model focus on the product). After attempting to train a Siamese network and a VAE, we ended up using a [pre-trained model](https://github.com/patrickjohncyh/fashion-clip) as it gave the best results. Our entire embedding extraction process can be found [here](https://github.com/maurofr/fashion-finder-model/tree/main/src).
 
 <div align="center">
     <img src="public/preprocessing.png" alt="Preprocessing" width="80%" height="80%">

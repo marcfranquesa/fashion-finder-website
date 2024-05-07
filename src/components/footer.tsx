@@ -26,7 +26,7 @@ export default function Footer() {
               href="https://github.com/maurofr/fashion-finder-model"
               className="ml-4 bg-transparent underline-offset-4 hover:underline hover:bg-transparent"
             >
-              <span className="pr-2">Embeddings</span>
+              <span className="pr-2">Model</span>
               <Image
                 src="/github.svg"
                 alt="github-logo"

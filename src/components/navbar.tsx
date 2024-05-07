@@ -34,7 +34,7 @@ export default function Navbar({
         href="/"
       >
         <span>
-          <IntlMessage id="hackupc" />
+          <IntlMessage id="group" />
         </span>
       </Link>
       <div className="hidden md:block">
@@ -93,10 +93,10 @@ export default function Navbar({
                 onClick={closeMenu}
                 className="py-2"
               >
-                Model Architecture
+                <IntlMessage id="modelArchitectureTitle" />
               </Link>
               <Link href="/recommender" onClick={closeMenu} className="py-2">
-                Recommender
+                <IntlMessage id="recommenderTitle" />
               </Link>
               <div className="py-2">
                 <LocaleSwitcher locale={locale} />
