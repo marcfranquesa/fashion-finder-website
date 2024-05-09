@@ -21,6 +21,7 @@ cols = ["link_1", "link_2", "link_3", "embedding"]
 df = df[cols]
 for col in cols:
     df = df.drop_duplicates(subset=[col])
+df = df.reset_index(drop=True)
 df = df.reset_index()
 data_to_upload = df.to_dict(orient="records")
 
